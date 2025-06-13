@@ -6,9 +6,8 @@ module Trojan0 (
 );
 	wire [19:0] counter;
 	lfsr_counter lfsr (rst, clk, counter);
-
+	integer i;
 	always @(posedge clk) begin
-		integer i;
 		for (i = 0; i < 64; i = i + 1) begin
 			load[i] <= key[i / 8] ^ counter[i / 8];
 		end

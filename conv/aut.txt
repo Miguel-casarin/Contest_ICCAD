@@ -3,7 +3,8 @@ async2sync
 synth -flatten 
 # não pode por espaço depois do -
 dfflibmap -liberty custon.lib
-abc -g AND NAND OR NOR ANDNOT ORNOT
+# executar agora sem andnot e ornot 
+abc -g AND,NAND,OR,NOR,XOR,XNOR 
 techmap
 opt
 clean
