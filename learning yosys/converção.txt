@@ -1,0 +1,22 @@
+# le o arquivo 
+read_verilog {diretório e caminho}
+
+#Faz minimização do circuito e simplificações lógicas. O -flatten juntaria submodulos em um
+synth -flatten
+
+#
+dfflibmap -liberty {diretório/minha_lib.lib}
+
+# Células
+abc -g AND NAND OR NOR ANDNOT ORNOT
+
+# mapeamento
+techmap
+
+# otimização lógica
+opt
+
+# Apaga módulos ou fios não utilizados, resquícios de transformações.
+clean
+
+write_verilog -noexpr {diretório/nome_arquivo}

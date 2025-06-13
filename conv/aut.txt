@@ -1,0 +1,10 @@
+read_verilog entrada/trojan0.v 
+async2sync
+synth -flatten 
+# não pode por espaço depois do -
+dfflibmap -liberty custon.lib
+abc -g AND NAND OR NOR ANDNOT ORNOT
+techmap
+opt
+clean
+write_verilog -noexpr saida/conv_trojan0.v

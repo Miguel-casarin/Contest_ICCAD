@@ -1,0 +1,13 @@
+arquivos convertidos por meio do script:
+
+read_verilog trojan1.v 
+async2sync
+synth -flatten 
+dfflibmap -liberty custon.lib
+abc -g AND NAND OR NOR ANDNOT ORNOT
+techmap
+opt
+clean
+write_verilog -noexpr conf.v
+
+na saída vou os arquivos convertidos com o mesmo com o mesmo nome de entrada mas no inicio com conv_
