@@ -1,0 +1,17 @@
+# 1. Ler o Verilog
+read_verilog Trojan1.v
+
+# 2. Converter código comportamental em lógica RTLIL
+proc; opt
+
+# 3. Rodar a síntese completa e gerar lógica plana
+synth -flatten
+
+# 4. (Opcional) Mapear flip-flops se você tiver dff.lib
+# dfflibmap -liberty dff.lib
+
+# 5. Executar o mapeamento com gates
+abc -g AND OR NOT XOR DFF
+
+# 6. Exportar a netlist mapeada
+write_verilog mapped.v
